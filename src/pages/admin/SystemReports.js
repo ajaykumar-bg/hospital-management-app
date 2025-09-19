@@ -12,49 +12,27 @@ import {
   MenuItem,
   Button,
 } from '@mui/material';
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  LineChart,
-  Line,
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-} from 'recharts';
+import { BarChart, LineChart, PieChart } from '@mui/x-charts';
 
 const mockData = {
-  patientStats: [
-    { month: 'Jan', patients: 1200, appointments: 2400 },
-    { month: 'Feb', patients: 1350, appointments: 2700 },
-    { month: 'Mar', patients: 1280, appointments: 2560 },
-    { month: 'Apr', patients: 1420, appointments: 2840 },
-    { month: 'May', patients: 1380, appointments: 2760 },
-    { month: 'Jun', patients: 1500, appointments: 3000 },
-  ],
+  patientStats: {
+    months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    patients: [1200, 1350, 1280, 1420, 1380, 1500],
+    appointments: [2400, 2700, 2560, 2840, 2760, 3000],
+  },
   departmentData: [
-    { name: 'Cardiology', value: 30, patients: 450 },
-    { name: 'Emergency', value: 25, patients: 375 },
-    { name: 'Pediatrics', value: 20, patients: 300 },
-    { name: 'Orthopedics', value: 15, patients: 225 },
-    { name: 'Others', value: 10, patients: 150 },
+    { id: 0, value: 30, label: 'Cardiology' },
+    { id: 1, value: 25, label: 'Emergency' },
+    { id: 2, value: 20, label: 'Pediatrics' },
+    { id: 3, value: 15, label: 'Orthopedics' },
+    { id: 4, value: 10, label: 'Others' },
   ],
-  revenue: [
-    { month: 'Jan', revenue: 125000, expenses: 98000 },
-    { month: 'Feb', revenue: 138000, expenses: 105000 },
-    { month: 'Mar', revenue: 142000, expenses: 108000 },
-    { month: 'Apr', revenue: 155000, expenses: 112000 },
-    { month: 'May', revenue: 148000, expenses: 109000 },
-    { month: 'Jun', revenue: 162000, expenses: 115000 },
-  ],
+  revenue: {
+    months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    revenue: [125000, 138000, 142000, 155000, 148000, 162000],
+    expenses: [98000, 105000, 108000, 112000, 109000, 115000],
+  },
 };
-
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
 export default function SystemReports() {
   const [reportType, setReportType] = useState('overview');
@@ -123,21 +101,29 @@ export default function SystemReports() {
               <Typography variant='h6' gutterBottom>
                 Patient & Appointment Trends
               </Typography>
-              <ResponsiveContainer width='100%' height={300}>
-                <LineChart data={mockData.patientStats}>
-                  <CartesianGrid strokeDasharray='3 3' />
-                  <XAxis dataKey='month' />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Line type='monotone' dataKey='patients' stroke='#8884d8' />
-                  <Line
-                    type='monotone'
-                    dataKey='appointments'
-                    stroke='#82ca9d'
-                  />
-                </LineChart>
-              </ResponsiveContainer>
+              <LineChart
+                width={800}
+                height={300}
+                xAxis={[
+                  {
+                    scaleType: 'point',
+                    data: mockData.patientStats.months,
+                  },
+                ]}
+                series={[
+                  {
+                    data: mockData.patientStats.patients,
+                    label: 'Patients',
+                    color: '#8884d8',
+                  },
+                  {
+                    data: mockData.patientStats.appointments,
+                    label: 'Appointments',
+                    color: '#82ca9d',
+                  },
+                ]}
+                grid={{ horizontal: true, vertical: true }}
+              />
             </CardContent>
           </Card>
         </Grid>
@@ -149,27 +135,20 @@ export default function SystemReports() {
               <Typography variant='h6' gutterBottom>
                 Department Distribution
               </Typography>
-              <ResponsiveContainer width='100%' height={300}>
-                <PieChart>
-                  <Pie
-                    data={mockData.departmentData}
-                    cx='50%'
-                    cy='50%'
-                    outerRadius={80}
-                    fill='#8884d8'
-                    dataKey='value'
-                    label
-                  >
-                    {mockData.departmentData.map((entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                </PieChart>
-              </ResponsiveContainer>
+              <PieChart
+                series={[
+                  {
+                    data: mockData.departmentData,
+                    highlightScope: { faded: 'global', highlighted: 'item' },
+                    faded: {
+                      innerRadius: 30,
+                      additionalRadius: -30,
+                      color: 'gray',
+                    },
+                  },
+                ]}
+                height={300}
+              />
             </CardContent>
           </Card>
         </Grid>
@@ -181,17 +160,29 @@ export default function SystemReports() {
               <Typography variant='h6' gutterBottom>
                 Financial Overview
               </Typography>
-              <ResponsiveContainer width='100%' height={300}>
-                <BarChart data={mockData.revenue}>
-                  <CartesianGrid strokeDasharray='3 3' />
-                  <XAxis dataKey='month' />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey='revenue' fill='#8884d8' />
-                  <Bar dataKey='expenses' fill='#82ca9d' />
-                </BarChart>
-              </ResponsiveContainer>
+              <BarChart
+                width={1000}
+                height={300}
+                xAxis={[
+                  {
+                    scaleType: 'band',
+                    data: mockData.revenue.months,
+                  },
+                ]}
+                series={[
+                  {
+                    data: mockData.revenue.revenue,
+                    label: 'Revenue',
+                    color: '#8884d8',
+                  },
+                  {
+                    data: mockData.revenue.expenses,
+                    label: 'Expenses',
+                    color: '#82ca9d',
+                  },
+                ]}
+                grid={{ horizontal: true }}
+              />
             </CardContent>
           </Card>
         </Grid>
