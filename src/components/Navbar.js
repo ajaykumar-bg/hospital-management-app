@@ -20,8 +20,6 @@ import {
   Person,
   DarkMode,
   LightMode,
-  PlayArrow,
-  Pause,
 } from '@mui/icons-material';
 import { useState } from 'react';
 import { useThemeMode } from '../context/ThemeContext';
@@ -172,13 +170,40 @@ const Navbar = () => {
                 <ListItemText>Switch to Admin</ListItemText>
               </MenuItem>
               <MenuItem
-                onClick={() => handleRoleChange('user')}
-                disabled={user.role === 'user'}
+                onClick={() => handleRoleChange('staff')}
+                disabled={user.role === 'staff'}
               >
                 <ListItemIcon>
                   <Person fontSize='small' />
                 </ListItemIcon>
-                <ListItemText>Switch to User</ListItemText>
+                <ListItemText>Switch to Staff</ListItemText>
+              </MenuItem>
+              <MenuItem
+                onClick={() => handleRoleChange('doctor')}
+                disabled={user.role === 'doctor'}
+              >
+                <ListItemIcon>
+                  <Person fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Switch to Doctor</ListItemText>
+              </MenuItem>
+              <MenuItem
+                onClick={() => handleRoleChange('nurse')}
+                disabled={user.role === 'nurse'}
+              >
+                <ListItemIcon>
+                  <Person fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Switch to Nurse</ListItemText>
+              </MenuItem>
+              <MenuItem
+                onClick={() => handleRoleChange('patient')}
+                disabled={user.role === 'patient'}
+              >
+                <ListItemIcon>
+                  <Person fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Switch to Patient</ListItemText>
               </MenuItem>
 
               <Divider />

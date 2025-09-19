@@ -14,21 +14,71 @@ export const UserProvider = ({ children }) => {
   // Mock user data - in real app this would come from authentication
   const [user, setUser] = useState({
     id: '1',
-    name: 'Ajay Girija',
-    email: 'ajay.girija@company.com',
-    role: 'admin', // 'admin' or 'user'
+    name: 'Dr. Ajay Girija',
+    email: 'ajay.girija@hospital.com',
+    role: 'admin', // 'admin', 'staff', 'doctor', 'nurse', 'patient'
+    department: 'Administration',
+    phone: '+1-234-567-8900',
+    address: '123 Medical Center Dr, Healthcare City, HC 12345',
   });
 
-  // Define permissions based on role
+  // Define permissions and access levels based on role
   const permissions = {
-    admin: {},
-    user: {},
+    admin: {
+      canManageUsers: true,
+      canViewAllPatients: true,
+      canManageSystem: true,
+      canViewReports: true,
+      canManageAppointments: true,
+    },
+    staff: {
+      canManageUsers: false,
+      canViewAllPatients: true,
+      canManageSystem: false,
+      canViewReports: true,
+      canManageAppointments: true,
+    },
+    doctor: {
+      canManageUsers: false,
+      canViewAllPatients: true,
+      canManageSystem: false,
+      canViewReports: true,
+      canManageAppointments: true,
+    },
+    nurse: {
+      canManageUsers: false,
+      canViewAllPatients: true,
+      canManageSystem: false,
+      canViewReports: false,
+      canManageAppointments: true,
+    },
+    patient: {
+      canManageUsers: false,
+      canViewAllPatients: false,
+      canManageSystem: false,
+      canViewReports: false,
+      canManageAppointments: false,
+    },
   };
 
-  const userPermissions = permissions[user.role] || permissions.user;
+  const userPermissions = permissions[user.role] || permissions.patient;
 
   const switchRole = (newRole) => {
-    setUser((prev) => ({ ...prev, role: newRole }));
+    // Update user data based on role
+    const roleData = {
+      admin: { name: 'Admin User', department: 'Administration' },
+      staff: { name: 'Staff Member', department: 'General Staff' },
+      doctor: { name: 'Dr. John Smith', department: 'Cardiology' },
+      nurse: { name: 'Nurse Sarah Johnson', department: 'Emergency' },
+      patient: { name: 'Patient Michael Brown', department: 'N/A' },
+    };
+
+    setUser((prev) => ({
+      ...prev,
+      role: newRole,
+      name: roleData[newRole]?.name || prev.name,
+      department: roleData[newRole]?.department || prev.department,
+    }));
   };
 
   const value = {

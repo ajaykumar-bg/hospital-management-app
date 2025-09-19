@@ -12,10 +12,14 @@ import {
 } from '@mui/material';
 import {
   Dashboard as DashboardIcon,
-  Details as DetailsIcon,
-  Analytics as AnalyticsIcon,
+  People as PeopleIcon,
+  LocalHospital as DoctorIcon,
+  EventNote as AppointmentIcon,
   Assignment as AssignmentIcon,
   Settings as SettingsIcon,
+  AccountCircle as ProfileIcon,
+  MedicalServices as MedicalIcon,
+  Payment as PaymentIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
@@ -25,18 +29,83 @@ const Sidebar = ({ open, onClose }) => {
   const location = useLocation();
   const { user } = useUser();
 
-  const navigationItems = [
+  // Base navigation items available to all users
+  const baseItems = [
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
+    { label: 'Profile', path: '/profile', icon: <ProfileIcon /> },
   ];
 
-  // Add admin-only navigation items
-  if (user.role === 'admin') {
-    navigationItems.push({
-      label: 'Configuration',
-      path: '/configuration',
-      icon: <SettingsIcon />,
-    });
-  }
+  // Role-specific navigation items
+  const roleSpecificItems = {
+    admin: [
+      { label: 'Patients', path: '/patients', icon: <PeopleIcon /> },
+      { label: 'Doctors', path: '/doctors', icon: <DoctorIcon /> },
+      {
+        label: 'Appointments',
+        path: '/appointments',
+        icon: <AppointmentIcon />,
+      },
+      {
+        label: 'Configuration',
+        path: '/configuration',
+        icon: <SettingsIcon />,
+      },
+    ],
+    staff: [
+      { label: 'Patients', path: '/patients', icon: <PeopleIcon /> },
+      {
+        label: 'Appointments',
+        path: '/appointments',
+        icon: <AppointmentIcon />,
+      },
+      { label: 'Doctors', path: '/doctors', icon: <DoctorIcon /> },
+    ],
+    doctor: [
+      { label: 'My Patients', path: '/patients', icon: <PeopleIcon /> },
+      {
+        label: 'Appointments',
+        path: '/appointments',
+        icon: <AppointmentIcon />,
+      },
+      {
+        label: 'Medical Records',
+        path: '/medical-records',
+        icon: <MedicalIcon />,
+      },
+    ],
+    nurse: [
+      { label: 'Patients', path: '/patients', icon: <PeopleIcon /> },
+      {
+        label: 'Appointments',
+        path: '/appointments',
+        icon: <AppointmentIcon />,
+      },
+      {
+        label: 'Medical Tasks',
+        path: '/medical-tasks',
+        icon: <AssignmentIcon />,
+      },
+    ],
+    patient: [
+      {
+        label: 'My Appointments',
+        path: '/appointments',
+        icon: <AppointmentIcon />,
+      },
+      {
+        label: 'Medical Records',
+        path: '/medical-records',
+        icon: <MedicalIcon />,
+      },
+      { label: 'Billing', path: '/billing', icon: <PaymentIcon /> },
+    ],
+  };
+
+  // Combine base items with role-specific items
+  const navigationItems = [
+    ...baseItems,
+    ...(roleSpecificItems[user.role] || []),
+  ];
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -64,6 +133,9 @@ const Sidebar = ({ open, onClose }) => {
         <Box sx={{ p: 2 }}>
           <Typography variant='h6' sx={{ fontWeight: 'bold' }}>
             Navigation
+          </Typography>
+          <Typography variant='caption' color='textSecondary'>
+            {user.role.charAt(0).toUpperCase() + user.role.slice(1)} Menu
           </Typography>
         </Box>
         <Divider />

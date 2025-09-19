@@ -14,16 +14,73 @@ import {
 import {
   AdminPanelSettings as AdminIcon,
   Person as PersonIcon,
+  LocalHospital as DoctorIcon,
+  MedicalServices as NurseIcon,
+  Business as StaffIcon,
+  PersonOutline as PatientIcon,
 } from '@mui/icons-material';
 import { useUser } from '../../context/UserContext';
 
 const Configuration = () => {
   const { user, permissions, switchRole } = useUser();
 
-  const permissionLabels = {};
+  const permissionLabels = {
+    canManageUsers: 'Manage Users',
+    canViewAllPatients: 'View All Patients',
+    canManageSystem: 'System Management',
+    canViewReports: 'View Reports',
+    canManageAppointments: 'Manage Appointments',
+  };
+
+  const roleConfig = {
+    admin: { color: 'error', icon: <AdminIcon /> },
+    staff: { color: 'info', icon: <StaffIcon /> },
+    doctor: { color: 'success', icon: <DoctorIcon /> },
+    nurse: { color: 'primary', icon: <NurseIcon /> },
+    patient: { color: 'secondary', icon: <PatientIcon /> },
+  };
 
   const handleRoleSwitch = (newRole) => {
     switchRole(newRole);
+  };
+
+  // Define all role permissions for comparison
+  const allRolePermissions = {
+    admin: {
+      canManageUsers: true,
+      canViewAllPatients: true,
+      canManageSystem: true,
+      canViewReports: true,
+      canManageAppointments: true,
+    },
+    staff: {
+      canManageUsers: false,
+      canViewAllPatients: true,
+      canManageSystem: false,
+      canViewReports: true,
+      canManageAppointments: true,
+    },
+    doctor: {
+      canManageUsers: false,
+      canViewAllPatients: true,
+      canManageSystem: false,
+      canViewReports: true,
+      canManageAppointments: true,
+    },
+    nurse: {
+      canManageUsers: false,
+      canViewAllPatients: true,
+      canManageSystem: false,
+      canViewReports: false,
+      canManageAppointments: true,
+    },
+    patient: {
+      canManageUsers: false,
+      canViewAllPatients: false,
+      canManageSystem: false,
+      canViewReports: false,
+      canManageAppointments: false,
+    },
   };
 
   return (
@@ -60,11 +117,17 @@ const Configuration = () => {
                   Role
                 </Typography>
                 <Chip
-                  icon={user.role === 'admin' ? <AdminIcon /> : <PersonIcon />}
+                  icon={roleConfig[user.role]?.icon || <PersonIcon />}
                   label={user.role.toUpperCase()}
-                  color={user.role === 'admin' ? 'error' : 'primary'}
+                  color={roleConfig[user.role]?.color || 'primary'}
                   variant='filled'
                 />
+              </Box>
+              <Box sx={{ mb: 2 }}>
+                <Typography variant='body2' color='text.secondary'>
+                  Department
+                </Typography>
+                <Typography variant='body1'>{user.department}</Typography>
               </Box>
             </CardContent>
           </Card>
@@ -81,30 +144,66 @@ const Configuration = () => {
                 Switch between roles to test different permission levels
               </Typography>
 
-              <Stack direction='row' spacing={2}>
-                <Button
-                  variant={user.role === 'admin' ? 'contained' : 'outlined'}
-                  color='error'
-                  startIcon={<AdminIcon />}
-                  onClick={() => handleRoleSwitch('admin')}
-                  disabled={user.role === 'admin'}
-                >
-                  Admin
-                </Button>
-                <Button
-                  variant={user.role === 'user' ? 'contained' : 'outlined'}
-                  color='primary'
-                  startIcon={<PersonIcon />}
-                  onClick={() => handleRoleSwitch('user')}
-                  disabled={user.role === 'user'}
-                >
-                  User
-                </Button>
+              <Stack direction='column' spacing={2}>
+                <Stack direction='row' spacing={1} flexWrap='wrap'>
+                  <Button
+                    variant={user.role === 'admin' ? 'contained' : 'outlined'}
+                    color='error'
+                    startIcon={<AdminIcon />}
+                    onClick={() => handleRoleSwitch('admin')}
+                    disabled={user.role === 'admin'}
+                    size='small'
+                  >
+                    Admin
+                  </Button>
+                  <Button
+                    variant={user.role === 'staff' ? 'contained' : 'outlined'}
+                    color='info'
+                    startIcon={<StaffIcon />}
+                    onClick={() => handleRoleSwitch('staff')}
+                    disabled={user.role === 'staff'}
+                    size='small'
+                  >
+                    Staff
+                  </Button>
+                  <Button
+                    variant={user.role === 'doctor' ? 'contained' : 'outlined'}
+                    color='success'
+                    startIcon={<DoctorIcon />}
+                    onClick={() => handleRoleSwitch('doctor')}
+                    disabled={user.role === 'doctor'}
+                    size='small'
+                  >
+                    Doctor
+                  </Button>
+                </Stack>
+                <Stack direction='row' spacing={1} flexWrap='wrap'>
+                  <Button
+                    variant={user.role === 'nurse' ? 'contained' : 'outlined'}
+                    color='primary'
+                    startIcon={<NurseIcon />}
+                    onClick={() => handleRoleSwitch('nurse')}
+                    disabled={user.role === 'nurse'}
+                    size='small'
+                  >
+                    Nurse
+                  </Button>
+                  <Button
+                    variant={user.role === 'patient' ? 'contained' : 'outlined'}
+                    color='secondary'
+                    startIcon={<PatientIcon />}
+                    onClick={() => handleRoleSwitch('patient')}
+                    disabled={user.role === 'patient'}
+                    size='small'
+                  >
+                    Patient
+                  </Button>
+                </Stack>
               </Stack>
 
               <Alert severity='info' sx={{ mt: 2 }}>
                 Role changes take effect immediately and will update the
-                dashboard visibility.
+                navigation menu and dashboard content.
               </Alert>
             </CardContent>
           </Card>
@@ -164,7 +263,7 @@ const Configuration = () => {
                 Role Comparison
               </Typography>
               <Typography variant='body2' color='text.secondary' sx={{ mb: 2 }}>
-                Compare permissions between admin and user roles
+                Compare permissions between different hospital roles
               </Typography>
 
               <Box sx={{ overflowX: 'auto' }}>
@@ -174,8 +273,9 @@ const Configuration = () => {
                       <th
                         style={{
                           textAlign: 'left',
-                          padding: '8px',
-                          borderBottom: '1px solid #ddd',
+                          padding: '12px 8px',
+                          borderBottom: '2px solid #ddd',
+                          backgroundColor: '#f5f5f5',
                         }}
                       >
                         Permission
@@ -183,8 +283,9 @@ const Configuration = () => {
                       <th
                         style={{
                           textAlign: 'center',
-                          padding: '8px',
-                          borderBottom: '1px solid #ddd',
+                          padding: '12px 8px',
+                          borderBottom: '2px solid #ddd',
+                          backgroundColor: '#f5f5f5',
                         }}
                       >
                         Admin
@@ -192,11 +293,42 @@ const Configuration = () => {
                       <th
                         style={{
                           textAlign: 'center',
-                          padding: '8px',
-                          borderBottom: '1px solid #ddd',
+                          padding: '12px 8px',
+                          borderBottom: '2px solid #ddd',
+                          backgroundColor: '#f5f5f5',
                         }}
                       >
-                        User
+                        Staff
+                      </th>
+                      <th
+                        style={{
+                          textAlign: 'center',
+                          padding: '12px 8px',
+                          borderBottom: '2px solid #ddd',
+                          backgroundColor: '#f5f5f5',
+                        }}
+                      >
+                        Doctor
+                      </th>
+                      <th
+                        style={{
+                          textAlign: 'center',
+                          padding: '12px 8px',
+                          borderBottom: '2px solid #ddd',
+                          backgroundColor: '#f5f5f5',
+                        }}
+                      >
+                        Nurse
+                      </th>
+                      <th
+                        style={{
+                          textAlign: 'center',
+                          padding: '12px 8px',
+                          borderBottom: '2px solid #ddd',
+                          backgroundColor: '#f5f5f5',
+                        }}
+                      >
+                        Patient
                       </th>
                     </tr>
                   </thead>
@@ -205,56 +337,38 @@ const Configuration = () => {
                       <tr key={key}>
                         <td
                           style={{
-                            padding: '8px',
+                            padding: '12px 8px',
                             borderBottom: '1px solid #eee',
+                            fontWeight: 500,
                           }}
                         >
                           {permissionLabels[key]}
                         </td>
-                        <td
-                          style={{
-                            textAlign: 'center',
-                            padding: '8px',
-                            borderBottom: '1px solid #eee',
-                          }}
-                        >
-                          <Chip
-                            label='✓'
-                            color='success'
-                            size='small'
-                            variant='filled'
-                          />
-                        </td>
-                        <td
-                          style={{
-                            textAlign: 'center',
-                            padding: '8px',
-                            borderBottom: '1px solid #eee',
-                          }}
-                        >
-                          <Chip
-                            label={
-                              [
-                                'canViewAIIndex',
-                                'canViewProductRoadmap',
-                                'canViewServiceRequest',
-                              ].includes(key)
-                                ? '✗'
-                                : '✓'
-                            }
-                            color={
-                              [
-                                'canViewAIIndex',
-                                'canViewProductRoadmap',
-                                'canViewServiceRequest',
-                              ].includes(key)
-                                ? 'error'
-                                : 'success'
-                            }
-                            size='small'
-                            variant='filled'
-                          />
-                        </td>
+                        {['admin', 'staff', 'doctor', 'nurse', 'patient'].map(
+                          (role) => (
+                            <td
+                              key={role}
+                              style={{
+                                textAlign: 'center',
+                                padding: '12px 8px',
+                                borderBottom: '1px solid #eee',
+                              }}
+                            >
+                              <Chip
+                                label={
+                                  allRolePermissions[role][key] ? '✓' : '✗'
+                                }
+                                color={
+                                  allRolePermissions[role][key]
+                                    ? 'success'
+                                    : 'error'
+                                }
+                                size='small'
+                                variant='filled'
+                              />
+                            </td>
+                          )
+                        )}
                       </tr>
                     ))}
                   </tbody>
