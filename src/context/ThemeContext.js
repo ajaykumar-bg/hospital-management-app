@@ -13,10 +13,14 @@ export const useThemeMode = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [mode, setMode] = useState('light'); // default to dark mode
+  const [mode, setMode] = useState('light'); // default to light mode
 
   const toggleTheme = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+    setMode((prevMode) => {
+      if (prevMode === 'light') return 'dark';
+      if (prevMode === 'dark') return 'purple';
+      return 'light'; // from purple back to light
+    });
   };
 
   const theme = getTheme(mode);

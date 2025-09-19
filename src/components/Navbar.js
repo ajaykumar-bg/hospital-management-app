@@ -20,6 +20,7 @@ import {
   Person,
   DarkMode,
   LightMode,
+  Palette,
 } from '@mui/icons-material';
 import { useState } from 'react';
 import { useThemeMode } from '../context/ThemeContext';
@@ -211,14 +212,20 @@ const Navbar = () => {
               {/* Theme Toggle */}
               <MenuItem onClick={handleThemeToggle}>
                 <ListItemIcon>
-                  {mode === 'dark' ? (
-                    <LightMode fontSize='small' />
-                  ) : (
+                  {mode === 'light' ? (
                     <DarkMode fontSize='small' />
+                  ) : mode === 'dark' ? (
+                    <Palette fontSize='small' />
+                  ) : (
+                    <LightMode fontSize='small' />
                   )}
                 </ListItemIcon>
                 <ListItemText>
-                  {mode === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                  {mode === 'light'
+                    ? 'Switch to Dark Theme'
+                    : mode === 'dark'
+                    ? 'Switch to Purple Theme'
+                    : 'Switch to Light Theme'}
                 </ListItemText>
               </MenuItem>
 
