@@ -31,13 +31,30 @@ function QuickActions(props) {
   const handleActionClick = (action) => {
     // Navigate to specific pages based on action
     const routes = {
+      // Admin routes
       'manage-users': '/admin/manage-users',
       'system-reports': '/admin/system-reports',
       'hospital-settings': '/admin/hospital-settings',
+
+      // Doctor routes
       'patient-records': '/doctor/patient-records',
       'schedule-appointments': '/doctor/schedule-appointments',
       'write-prescriptions': '/doctor/write-prescriptions',
-      // Add more routes as we create more pages
+
+      // Nurse routes
+      'patient-care': '/nurse/patient-care-tasks',
+      'medication-schedule': '/nurse/patient-care-tasks', // Same page, different functionality
+      'vital-signs': '/nurse/patient-care-tasks', // Same page, different functionality
+
+      // Staff routes
+      'appointment-management': '/staff/appointment-management',
+      'patient-registration': '/staff/patient-registration',
+      'insurance-processing': '/staff/insurance-processing',
+
+      // Patient routes
+      'book-appointment': '/patient/book-appointment',
+      'view-results': '/patient/view-test-results',
+      'pay-bills': '/patient/pay-bills',
     };
 
     if (routes[action]) {
