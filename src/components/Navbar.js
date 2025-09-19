@@ -101,7 +101,7 @@ const Navbar = () => {
             component='div'
             sx={{ flexGrow: 1, fontSize: 18, fontWeight: 'bold' }}
           >
-            SAP App Dev Scorecard
+            Hospital Management System
           </Typography>
 
           <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
