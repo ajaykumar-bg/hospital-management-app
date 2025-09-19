@@ -1,17 +1,42 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import Patients from './pages/Patients';
-import Doctors from './pages/Doctors';
-import Appointments from './pages/Appointments';
+import { Container } from '@mui/material';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 
-export default function AppRoutes() {
+import Login from './components/Login';
+import Navbar from './components/Navbar';
+import Dashboard from './components/Dashboard';
+import Configuration from './components/Configuration';
+
+function AppRoutes() {
   return (
-    <Routes>
-      <Route path='/' element={<Dashboard />} />
-      <Route path='/patients' element={<Patients />} />
-      <Route path='/doctors' element={<Doctors />} />
-      <Route path='/appointments' element={<Appointments />} />
-    </Routes>
+    <Router>
+      <div className='app'>
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route
+            path='/*'
+            element={
+              <>
+                <Navbar />
+                <Container maxWidth={false} sx={{ padding: 2 }}>
+                  <Routes>
+                    <Route path='/' element={<Dashboard />} />
+                    <Route path='/configuration' element={<Configuration />} />
+                    <Route path='*' element={<Navigate to='/' replace />} />
+                  </Routes>
+                </Container>
+              </>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
+
+export default AppRoutes;
