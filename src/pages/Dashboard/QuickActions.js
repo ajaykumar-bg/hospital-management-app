@@ -7,6 +7,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import {
   SupervisorAccount as ManageUsersIcon,
   Assessment as ReportsIcon,
@@ -25,10 +26,27 @@ import {
 
 function QuickActions(props) {
   const { user } = props;
+  const navigate = useNavigate();
 
   const handleActionClick = (action) => {
-    console.log(`${action} clicked for ${user.role}`);
-    // Here you would implement the actual navigation or action
+    // Navigate to specific pages based on action
+    const routes = {
+      'manage-users': '/admin/manage-users',
+      'system-reports': '/admin/system-reports',
+      'hospital-settings': '/admin/hospital-settings',
+      'patient-records': '/doctor/patient-records',
+      'schedule-appointments': '/doctor/schedule-appointments',
+      'write-prescriptions': '/doctor/write-prescriptions',
+      // Add more routes as we create more pages
+    };
+
+    if (routes[action]) {
+      navigate(routes[action]);
+    } else {
+      console.log(
+        `${action} clicked for ${user.role} - Page not yet implemented`
+      );
+    }
   };
 
   const getActionsForRole = (role) => {
