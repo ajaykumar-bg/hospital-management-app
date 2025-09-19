@@ -119,7 +119,7 @@ export default function Profile() {
 
       <Grid container spacing={3}>
         {/* Profile Info Card */}
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent sx={{ textAlign: 'center' }}>
               <Avatar
@@ -168,7 +168,7 @@ export default function Profile() {
         </Grid>
 
         {/* Profile Form */}
-        <Grid item xs={12} md={8}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Paper sx={{ p: 3 }}>
             <Box
               display='flex'
@@ -209,7 +209,7 @@ export default function Profile() {
             <Divider sx={{ mb: 3 }} />
 
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <TextField
                   fullWidth
                   label='Full Name'
@@ -219,7 +219,7 @@ export default function Profile() {
                   variant={isEditing ? 'outlined' : 'filled'}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <TextField
                   fullWidth
                   label='Email'
@@ -229,7 +229,7 @@ export default function Profile() {
                   variant={isEditing ? 'outlined' : 'filled'}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <TextField
                   fullWidth
                   label='Phone Number'
@@ -239,7 +239,7 @@ export default function Profile() {
                   variant={isEditing ? 'outlined' : 'filled'}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <TextField
                   fullWidth
                   label='Department'
@@ -249,7 +249,7 @@ export default function Profile() {
                   variant={isEditing ? 'outlined' : 'filled'}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <TextField
                   fullWidth
                   label='Address'
@@ -272,7 +272,7 @@ export default function Profile() {
 
               {user.role === 'doctor' && (
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
                       fullWidth
                       label='Medical License'
@@ -281,7 +281,7 @@ export default function Profile() {
                       variant='filled'
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
                       fullWidth
                       label='Specialization'
@@ -295,7 +295,7 @@ export default function Profile() {
 
               {user.role === 'nurse' && (
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
                       fullWidth
                       label='Nursing License'
@@ -304,7 +304,7 @@ export default function Profile() {
                       variant='filled'
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
                       fullWidth
                       label='Certification Level'
@@ -318,7 +318,7 @@ export default function Profile() {
 
               {user.role === 'patient' && (
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
                       fullWidth
                       label='Patient ID'
@@ -327,7 +327,7 @@ export default function Profile() {
                       variant='filled'
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
                       fullWidth
                       label='Insurance Provider'

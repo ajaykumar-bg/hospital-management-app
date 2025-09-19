@@ -51,7 +51,7 @@ export default function SystemReports() {
 
       <Paper sx={{ p: 3, mb: 3 }}>
         <Grid container spacing={3} alignItems='center'>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <FormControl fullWidth>
               <InputLabel>Report Type</InputLabel>
               <Select
@@ -66,7 +66,7 @@ export default function SystemReports() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <FormControl fullWidth>
               <InputLabel>Time Range</InputLabel>
               <Select
@@ -81,7 +81,7 @@ export default function SystemReports() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Button
               variant='contained'
               onClick={() => exportReport(reportType)}
@@ -95,7 +95,7 @@ export default function SystemReports() {
 
       <Grid container spacing={3}>
         {/* Patient Statistics */}
-        <Grid item xs={12} lg={8}>
+        <Grid size={{ xs: 12, lg: 8 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -129,7 +129,7 @@ export default function SystemReports() {
         </Grid>
 
         {/* Department Distribution */}
-        <Grid item xs={12} lg={4}>
+        <Grid size={{ xs: 12, lg: 4 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -154,7 +154,7 @@ export default function SystemReports() {
         </Grid>
 
         {/* Revenue Report */}
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -188,7 +188,7 @@ export default function SystemReports() {
         </Grid>
 
         {/* Summary Cards */}
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='primary'>
@@ -201,7 +201,7 @@ export default function SystemReports() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='success.main'>
@@ -214,7 +214,7 @@ export default function SystemReports() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='warning.main'>
@@ -227,7 +227,7 @@ export default function SystemReports() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='error.main'>

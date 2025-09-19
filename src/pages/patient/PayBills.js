@@ -130,7 +130,7 @@ export default function PayBills() {
 
       {/* Summary Cards */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='error.main'>
@@ -140,7 +140,7 @@ export default function PayBills() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='success.main'>
@@ -150,7 +150,7 @@ export default function PayBills() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='info.main'>
@@ -164,7 +164,7 @@ export default function PayBills() {
 
       <Grid container spacing={3}>
         {/* Bills Table */}
-        <Grid item xs={12} lg={8}>
+        <Grid size={{ xs: 12, lg: 8 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -228,7 +228,7 @@ export default function PayBills() {
         </Grid>
 
         {/* Insurance Information */}
-        <Grid item xs={12} lg={4}>
+        <Grid size={{ xs: 12, lg: 4 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -332,7 +332,7 @@ export default function PayBills() {
               </Typography>
 
               <Grid container spacing={2} sx={{ mt: 2 }}>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Card Holder Name'
                     value={paymentDetails.cardHolder}
@@ -345,7 +345,7 @@ export default function PayBills() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Card Number'
                     value={paymentDetails.cardNumber}
@@ -359,7 +359,7 @@ export default function PayBills() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={{ xs: 6 }}>
                   <TextField
                     label='Expiry Date'
                     value={paymentDetails.expiryDate}
@@ -373,7 +373,7 @@ export default function PayBills() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={{ xs: 6 }}>
                   <TextField
                     label='CVV'
                     value={paymentDetails.cvv}
@@ -387,7 +387,7 @@ export default function PayBills() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Payment Amount'
                     value={paymentDetails.amount}

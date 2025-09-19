@@ -175,7 +175,7 @@ export default function WritePrescriptions() {
 
       <Grid container spacing={3}>
         {/* Recent Prescriptions */}
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -250,7 +250,7 @@ export default function WritePrescriptions() {
           <Box sx={{ mt: 2 }}>
             {/* Patient Selection */}
             <Grid container spacing={2} mb={3}>
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Autocomplete
                   options={mockPatients}
                   getOptionLabel={(option) => `${option.name} (${option.mrn})`}
@@ -269,7 +269,7 @@ export default function WritePrescriptions() {
             </Typography>
             <Paper sx={{ p: 2, mb: 2 }}>
               <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                   <Autocomplete
                     options={mockMedications}
                     value={currentMedication.name}
@@ -284,7 +284,7 @@ export default function WritePrescriptions() {
                     )}
                   />
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid size={{ xs: 12, md: 3 }}>
                   <TextField
                     label='Dosage'
                     value={currentMedication.dosage}
@@ -298,7 +298,7 @@ export default function WritePrescriptions() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid size={{ xs: 12, md: 3 }}>
                   <FormControl fullWidth>
                     <InputLabel>Frequency</InputLabel>
                     <Select
@@ -325,7 +325,7 @@ export default function WritePrescriptions() {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                   <TextField
                     label='Duration'
                     value={currentMedication.duration}
@@ -339,7 +339,7 @@ export default function WritePrescriptions() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                   <TextField
                     label='Special Instructions'
                     value={currentMedication.instructions}
@@ -353,7 +353,7 @@ export default function WritePrescriptions() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <Button
                     variant='outlined'
                     onClick={handleAddMedication}

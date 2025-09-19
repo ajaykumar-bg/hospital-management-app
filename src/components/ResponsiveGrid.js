@@ -5,7 +5,7 @@ export default function ResponsiveGrid() {
     <Container maxWidth={false} sx={{ px: 2, py: 4 }}>
       <Grid container spacing={2}>
         {[...Array(6)].map((_, index) => (
-          <Grid item size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
             <Box
               sx={{
                 bgcolor: 'lightblue',

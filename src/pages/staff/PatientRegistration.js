@@ -214,7 +214,7 @@ export default function PatientRegistration() {
 
       {/* Summary Cards */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -225,7 +225,7 @@ export default function PatientRegistration() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -244,7 +244,7 @@ export default function PatientRegistration() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Button
@@ -264,7 +264,7 @@ export default function PatientRegistration() {
       <Card sx={{ mb: 3 }}>
         <CardContent>
           <Grid container spacing={2} alignItems='center'>
-            <Grid item xs={12} md={8}>
+            <Grid size={{ xs: 12, md: 8 }}>
               <TextField
                 label='Search Patients'
                 value={searchTerm}
@@ -278,7 +278,7 @@ export default function PatientRegistration() {
                 }}
               />
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <Typography variant='body2' color='textSecondary'>
                 Found {filteredPatients.length} of {patients.length} patients
               </Typography>
@@ -412,7 +412,7 @@ export default function PatientRegistration() {
         </DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='First Name'
                 value={patientForm.firstName}
@@ -423,7 +423,7 @@ export default function PatientRegistration() {
                 required
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Last Name'
                 value={patientForm.lastName}
@@ -434,7 +434,7 @@ export default function PatientRegistration() {
                 required
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Date of Birth'
                 type='date'
@@ -450,7 +450,7 @@ export default function PatientRegistration() {
                 InputLabelProps={{ shrink: true }}
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <FormControl fullWidth required>
                 <InputLabel>Gender</InputLabel>
                 <Select
@@ -466,7 +466,7 @@ export default function PatientRegistration() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Phone Number'
                 value={patientForm.phone}
@@ -478,7 +478,7 @@ export default function PatientRegistration() {
                 placeholder='(555) 123-4567'
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Email Address'
                 type='email'
@@ -490,7 +490,7 @@ export default function PatientRegistration() {
                 required
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField
                 label='Address'
                 value={patientForm.address}
@@ -503,7 +503,7 @@ export default function PatientRegistration() {
                 rows={2}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField
                 label='Emergency Contact'
                 value={patientForm.emergencyContact}
@@ -518,7 +518,7 @@ export default function PatientRegistration() {
                 placeholder='Name - Phone Number'
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <FormControl fullWidth required>
                 <InputLabel>Insurance Provider</InputLabel>
                 <Select
@@ -539,7 +539,7 @@ export default function PatientRegistration() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Insurance Number'
                 value={patientForm.insuranceNumber}

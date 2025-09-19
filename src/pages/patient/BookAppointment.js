@@ -170,7 +170,7 @@ export default function BookAppointment() {
 
       {/* Quick Actions */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={2}>
@@ -188,7 +188,7 @@ export default function BookAppointment() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={2}>
@@ -204,7 +204,7 @@ export default function BookAppointment() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={2}>
@@ -222,7 +222,7 @@ export default function BookAppointment() {
 
       <Grid container spacing={3}>
         {/* Upcoming Appointments */}
-        <Grid item xs={12} lg={8}>
+        <Grid size={{ xs: 12, lg: 8 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -306,7 +306,7 @@ export default function BookAppointment() {
         </Grid>
 
         {/* Available Doctors */}
-        <Grid item xs={12} lg={4}>
+        <Grid size={{ xs: 12, lg: 4 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -382,7 +382,7 @@ export default function BookAppointment() {
         </DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <FormControl fullWidth>
                 <InputLabel>Select Doctor</InputLabel>
                 <Select
@@ -403,7 +403,7 @@ export default function BookAppointment() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField
                 label='Appointment Date'
                 type='date'
@@ -413,7 +413,7 @@ export default function BookAppointment() {
                 InputLabelProps={{ shrink: true }}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <FormControl fullWidth disabled={!newAppointment.date}>
                 <InputLabel>Available Time Slots</InputLabel>
                 <Select
@@ -434,7 +434,7 @@ export default function BookAppointment() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <FormControl fullWidth>
                 <InputLabel>Appointment Type</InputLabel>
                 <Select
@@ -455,7 +455,7 @@ export default function BookAppointment() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField
                 label='Reason for Visit'
                 value={newAppointment.reason}

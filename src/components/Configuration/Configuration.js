@@ -94,7 +94,7 @@ const Configuration = () => {
 
       <Grid container spacing={3}>
         {/* User Information */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -134,7 +134,7 @@ const Configuration = () => {
         </Grid>
 
         {/* Role Switching */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -210,7 +210,7 @@ const Configuration = () => {
         </Grid>
 
         {/* Current Permissions */}
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -222,7 +222,7 @@ const Configuration = () => {
 
               <Grid container spacing={2}>
                 {Object.entries(permissions).map(([key, value]) => (
-                  <Grid item xs={12} sm={6} md={4} key={key}>
+                  <Grid size={{ xs: 12, sm: 6, md: 4 }} key={key}>
                     <Paper
                       elevation={1}
                       sx={{
@@ -256,7 +256,7 @@ const Configuration = () => {
         </Grid>
 
         {/* Permission Comparison */}
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>

@@ -108,7 +108,7 @@ export default function HospitalSettings() {
 
       <Grid container spacing={3}>
         {/* General Settings */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card>
             <CardContent>
               <Box
@@ -127,7 +127,7 @@ export default function HospitalSettings() {
                 </IconButton>
               </Box>
               <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Hospital Name'
                     value={settings.general.hospitalName}
@@ -143,7 +143,7 @@ export default function HospitalSettings() {
                     variant={editMode.general ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Address'
                     value={settings.general.address}
@@ -157,7 +157,7 @@ export default function HospitalSettings() {
                     variant={editMode.general ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     label='Phone'
                     value={settings.general.phone}
@@ -169,7 +169,7 @@ export default function HospitalSettings() {
                     variant={editMode.general ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     label='Email'
                     value={settings.general.email}
@@ -181,7 +181,7 @@ export default function HospitalSettings() {
                     variant={editMode.general ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Timezone'
                     value={settings.general.timezone}
@@ -199,7 +199,7 @@ export default function HospitalSettings() {
         </Grid>
 
         {/* Security Settings */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card>
             <CardContent>
               <Box
@@ -223,7 +223,7 @@ export default function HospitalSettings() {
                 </IconButton>
               </Box>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     label='Password Expiry (days)'
                     type='number'
@@ -240,7 +240,7 @@ export default function HospitalSettings() {
                     variant={editMode.security ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     label='Max Login Attempts'
                     type='number'
@@ -257,7 +257,7 @@ export default function HospitalSettings() {
                     variant={editMode.security ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Session Timeout (minutes)'
                     type='number'
@@ -274,7 +274,7 @@ export default function HospitalSettings() {
                     variant={editMode.security ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <FormControlLabel
                     control={
                       <Switch
@@ -292,7 +292,7 @@ export default function HospitalSettings() {
                     label='Two-Factor Authentication'
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <FormControlLabel
                     control={
                       <Switch
@@ -316,7 +316,7 @@ export default function HospitalSettings() {
         </Grid>
 
         {/* Notification Settings */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card>
             <CardContent>
               <Box
@@ -417,7 +417,7 @@ export default function HospitalSettings() {
         </Grid>
 
         {/* System Settings */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card>
             <CardContent>
               <Box
@@ -441,7 +441,7 @@ export default function HospitalSettings() {
                 </IconButton>
               </Box>
               <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Backup Frequency'
                     value={settings.system.backupFrequency}
@@ -457,7 +457,7 @@ export default function HospitalSettings() {
                     variant={editMode.system ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Maintenance Window'
                     value={settings.system.maintenanceWindow}
@@ -473,7 +473,7 @@ export default function HospitalSettings() {
                     variant={editMode.system ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     label='Max File Size'
                     value={settings.system.maxFileSize}
@@ -485,7 +485,7 @@ export default function HospitalSettings() {
                     variant={editMode.system ? 'outlined' : 'filled'}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     label='Data Retention Period'
                     value={settings.system.retentionPeriod}
@@ -516,14 +516,14 @@ export default function HospitalSettings() {
         </Grid>
 
         {/* System Status */}
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
                 System Status
               </Typography>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={3}>
+                <Grid size={{ xs: 12, sm: 3 }}>
                   <Box textAlign='center'>
                     <Typography variant='body2' color='textSecondary'>
                       Database
@@ -531,7 +531,7 @@ export default function HospitalSettings() {
                     <Chip label='Online' color='success' />
                   </Box>
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid size={{ xs: 12, sm: 3 }}>
                   <Box textAlign='center'>
                     <Typography variant='body2' color='textSecondary'>
                       API Services
@@ -539,7 +539,7 @@ export default function HospitalSettings() {
                     <Chip label='Online' color='success' />
                   </Box>
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid size={{ xs: 12, sm: 3 }}>
                   <Box textAlign='center'>
                     <Typography variant='body2' color='textSecondary'>
                       Backup System
@@ -547,7 +547,7 @@ export default function HospitalSettings() {
                     <Chip label='Online' color='success' />
                   </Box>
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid size={{ xs: 12, sm: 3 }}>
                   <Box textAlign='center'>
                     <Typography variant='body2' color='textSecondary'>
                       Email Service

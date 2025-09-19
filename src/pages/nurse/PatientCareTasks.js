@@ -144,7 +144,7 @@ export default function PatientCareTasks() {
 
       {/* Summary Cards */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='primary'>
@@ -154,7 +154,7 @@ export default function PatientCareTasks() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='warning.main'>
@@ -166,7 +166,7 @@ export default function PatientCareTasks() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='success.main'>
@@ -178,7 +178,7 @@ export default function PatientCareTasks() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' color='info.main'>
@@ -302,7 +302,7 @@ export default function PatientCareTasks() {
           {selectedTask && (
             <Box>
               <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Patient Name'
                     value={selectedTask.patientName}
@@ -311,7 +311,7 @@ export default function PatientCareTasks() {
                     variant='filled'
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={{ xs: 6 }}>
                   <TextField
                     label='Room'
                     value={selectedTask.room}
@@ -320,7 +320,7 @@ export default function PatientCareTasks() {
                     variant='filled'
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={{ xs: 6 }}>
                   <TextField
                     label='Priority'
                     value={selectedTask.priority}
@@ -329,7 +329,7 @@ export default function PatientCareTasks() {
                     variant='filled'
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Task'
                     value={selectedTask.task}
@@ -338,7 +338,7 @@ export default function PatientCareTasks() {
                     variant='filled'
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={{ xs: 6 }}>
                   <TextField
                     label='Assigned Time'
                     value={selectedTask.assignedTime}
@@ -347,7 +347,7 @@ export default function PatientCareTasks() {
                     variant='filled'
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={{ xs: 6 }}>
                   <TextField
                     label='Due Time'
                     value={selectedTask.dueTime}
@@ -356,7 +356,7 @@ export default function PatientCareTasks() {
                     variant='filled'
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Notes'
                     value={selectedTask.notes}
@@ -367,7 +367,7 @@ export default function PatientCareTasks() {
                     variant='filled'
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     label='Status'
                     value={selectedTask.status}

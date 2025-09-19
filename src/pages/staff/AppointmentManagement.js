@@ -220,7 +220,7 @@ export default function AppointmentManagement() {
 
       {/* Summary Cards */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -231,7 +231,7 @@ export default function AppointmentManagement() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -242,7 +242,7 @@ export default function AppointmentManagement() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -253,7 +253,7 @@ export default function AppointmentManagement() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Button
@@ -278,7 +278,7 @@ export default function AppointmentManagement() {
           {todaysAppointments.length > 0 ? (
             <Grid container spacing={2}>
               {todaysAppointments.map((appointment) => (
-                <Grid item xs={12} md={6} lg={4} key={appointment.id}>
+                <Grid size={{ xs: 12, md: 6, lg: 4 }} key={appointment.id}>
                   <Paper sx={{ p: 2, border: 1, borderColor: 'divider' }}>
                     <Box
                       display='flex'
@@ -415,7 +415,7 @@ export default function AppointmentManagement() {
         </DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Patient Name'
                 value={appointmentForm.patientName}
@@ -428,7 +428,7 @@ export default function AppointmentManagement() {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Patient ID'
                 value={appointmentForm.patientId}
@@ -441,7 +441,7 @@ export default function AppointmentManagement() {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <FormControl fullWidth>
                 <InputLabel>Doctor</InputLabel>
                 <Select
@@ -462,7 +462,7 @@ export default function AppointmentManagement() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <FormControl fullWidth>
                 <InputLabel>Appointment Type</InputLabel>
                 <Select
@@ -483,7 +483,7 @@ export default function AppointmentManagement() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <TextField
                 label='Date'
                 type='date'
@@ -498,7 +498,7 @@ export default function AppointmentManagement() {
                 InputLabelProps={{ shrink: true }}
               />
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <FormControl fullWidth>
                 <InputLabel>Time</InputLabel>
                 <Select
@@ -519,7 +519,7 @@ export default function AppointmentManagement() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <FormControl fullWidth>
                 <InputLabel>Duration (minutes)</InputLabel>
                 <Select
@@ -539,7 +539,7 @@ export default function AppointmentManagement() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <FormControl fullWidth>
                 <InputLabel>Room</InputLabel>
                 <Select

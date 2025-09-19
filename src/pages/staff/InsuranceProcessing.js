@@ -245,7 +245,7 @@ export default function InsuranceProcessing() {
 
       {/* Summary Cards */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -256,7 +256,7 @@ export default function InsuranceProcessing() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -267,7 +267,7 @@ export default function InsuranceProcessing() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -278,7 +278,7 @@ export default function InsuranceProcessing() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid size={{ xs: 12, md: 3 }}>
           <Card>
             <CardContent>
               <Box display='flex' alignItems='center' gap={1} mb={1}>
@@ -293,7 +293,7 @@ export default function InsuranceProcessing() {
 
       {/* Quick Actions */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} md={8}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -325,7 +325,7 @@ export default function InsuranceProcessing() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -477,7 +477,7 @@ export default function InsuranceProcessing() {
         </DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Patient Name'
                 value={claimForm.patientName}
@@ -488,7 +488,7 @@ export default function InsuranceProcessing() {
                 required
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Patient ID'
                 value={claimForm.patientId}
@@ -499,7 +499,7 @@ export default function InsuranceProcessing() {
                 required
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <FormControl fullWidth required>
                 <InputLabel>Insurance Provider</InputLabel>
                 <Select
@@ -520,7 +520,7 @@ export default function InsuranceProcessing() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Policy Number'
                 value={claimForm.policyNumber}
@@ -531,7 +531,7 @@ export default function InsuranceProcessing() {
                 required
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Service Date'
                 type='date'
@@ -544,7 +544,7 @@ export default function InsuranceProcessing() {
                 InputLabelProps={{ shrink: true }}
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <FormControl fullWidth required>
                 <InputLabel>Service Type</InputLabel>
                 <Select
@@ -562,7 +562,7 @@ export default function InsuranceProcessing() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Claimed Amount'
                 type='number'
@@ -575,7 +575,7 @@ export default function InsuranceProcessing() {
                 InputProps={{ startAdornment: '$' }}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField
                 label='Notes'
                 value={claimForm.notes}
@@ -589,7 +589,7 @@ export default function InsuranceProcessing() {
               />
             </Grid>
             {selectedClaim && (
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Alert severity='info'>
                   <Typography variant='body2'>
                     <strong>Submission Date:</strong>{' '}
