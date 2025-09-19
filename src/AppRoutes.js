@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Configuration from './components/Configuration';
+import Settings from './pages/Settings';
 import ErrorBoundary from './ErrorBoundary';
 
 // Admin Pages
@@ -50,6 +51,7 @@ function AppRoutes() {
                     <Routes>
                       <Route path='/' element={<Dashboard />} />
                       <Route path='/profile' element={<Profile />} />
+                      <Route path='/settings' element={<Settings />} />
                       <Route
                         path='/configuration'
                         element={<Configuration />}

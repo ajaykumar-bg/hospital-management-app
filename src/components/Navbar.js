@@ -18,17 +18,12 @@ import {
   Logout,
   AccountCircle,
   Person,
-  DarkMode,
-  LightMode,
-  Palette,
 } from '@mui/icons-material';
 import { useState } from 'react';
-import { useThemeMode } from '../context/ThemeContext';
 import { useUser } from '../context/UserContext';
 import Sidebar from './Sidebar';
 
 const Navbar = () => {
-  const { mode, toggleTheme } = useThemeMode();
   const { user, switchRole } = useUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [userMenuAnchorEl, setUserMenuAnchorEl] = useState(null);
@@ -57,11 +52,6 @@ const Navbar = () => {
 
   const handleRoleChange = (role) => {
     switchRole(role);
-    handleUserMenuClose();
-  };
-
-  const handleThemeToggle = () => {
-    toggleTheme();
     handleUserMenuClose();
   };
 
@@ -205,28 +195,6 @@ const Navbar = () => {
                   <Person fontSize='small' />
                 </ListItemIcon>
                 <ListItemText>Switch to Patient</ListItemText>
-              </MenuItem>
-
-              <Divider />
-
-              {/* Theme Toggle */}
-              <MenuItem onClick={handleThemeToggle}>
-                <ListItemIcon>
-                  {mode === 'light' ? (
-                    <DarkMode fontSize='small' />
-                  ) : mode === 'dark' ? (
-                    <Palette fontSize='small' />
-                  ) : (
-                    <LightMode fontSize='small' />
-                  )}
-                </ListItemIcon>
-                <ListItemText>
-                  {mode === 'light'
-                    ? 'Switch to Dark Theme'
-                    : mode === 'dark'
-                    ? 'Switch to Purple Theme'
-                    : 'Switch to Light Theme'}
-                </ListItemText>
               </MenuItem>
 
               <Divider />

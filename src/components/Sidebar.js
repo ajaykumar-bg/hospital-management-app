@@ -19,6 +19,7 @@ import {
   AccountCircle as ProfileIcon,
   MedicalServices as MedicalIcon,
   Payment as PaymentIcon,
+  Business as HospitalIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
@@ -32,6 +33,7 @@ const Sidebar = ({ open, onClose }) => {
   const baseItems = [
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
     { label: 'Profile', path: '/profile', icon: <ProfileIcon /> },
+    { label: 'Settings', path: '/settings', icon: <SettingsIcon /> },
   ];
 
   // Role-specific navigation items based on QuickActions
@@ -40,7 +42,7 @@ const Sidebar = ({ open, onClose }) => {
       {
         label: 'Manage Users',
         path: '/admin/manage-users',
-        icon: <SettingsIcon />,
+        icon: <PeopleIcon />,
       },
       {
         label: 'System Reports',
@@ -50,12 +52,12 @@ const Sidebar = ({ open, onClose }) => {
       {
         label: 'Hospital Settings',
         path: '/admin/hospital-settings',
-        icon: <SettingsIcon />,
+        icon: <HospitalIcon />,
       },
       {
         label: 'Configuration',
         path: '/configuration',
-        icon: <SettingsIcon />,
+        icon: <AssignmentIcon />,
       },
     ],
     staff: [

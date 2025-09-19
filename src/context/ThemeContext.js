@@ -15,18 +15,16 @@ export const useThemeMode = () => {
 export const ThemeProvider = ({ children }) => {
   const [mode, setMode] = useState('light'); // default to light mode
 
-  const toggleTheme = () => {
-    setMode((prevMode) => {
-      if (prevMode === 'light') return 'dark';
-      if (prevMode === 'dark') return 'purple';
-      return 'light'; // from purple back to light
-    });
+  const setTheme = (newTheme) => {
+    if (['light', 'dark', 'purple'].includes(newTheme)) {
+      setMode(newTheme);
+    }
   };
 
   const theme = getTheme(mode);
 
   return (
-    <ThemeContext.Provider value={{ mode, toggleTheme }}>
+    <ThemeContext.Provider value={{ mode, setTheme }}>
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
     </ThemeContext.Provider>
   );
