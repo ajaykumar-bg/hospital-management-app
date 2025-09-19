@@ -13,7 +13,6 @@ import {
 import {
   Dashboard as DashboardIcon,
   People as PeopleIcon,
-  LocalHospital as DoctorIcon,
   EventNote as AppointmentIcon,
   Assignment as AssignmentIcon,
   Settings as SettingsIcon,
@@ -35,15 +34,23 @@ const Sidebar = ({ open, onClose }) => {
     { label: 'Profile', path: '/profile', icon: <ProfileIcon /> },
   ];
 
-  // Role-specific navigation items
+  // Role-specific navigation items based on QuickActions
   const roleSpecificItems = {
     admin: [
-      { label: 'Patients', path: '/patients', icon: <PeopleIcon /> },
-      { label: 'Doctors', path: '/doctors', icon: <DoctorIcon /> },
       {
-        label: 'Appointments',
-        path: '/appointments',
-        icon: <AppointmentIcon />,
+        label: 'Manage Users',
+        path: '/admin/manage-users',
+        icon: <SettingsIcon />,
+      },
+      {
+        label: 'System Reports',
+        path: '/admin/system-reports',
+        icon: <AssignmentIcon />,
+      },
+      {
+        label: 'Hospital Settings',
+        path: '/admin/hospital-settings',
+        icon: <SettingsIcon />,
       },
       {
         label: 'Configuration',
@@ -52,52 +59,62 @@ const Sidebar = ({ open, onClose }) => {
       },
     ],
     staff: [
-      { label: 'Patients', path: '/patients', icon: <PeopleIcon /> },
       {
-        label: 'Appointments',
-        path: '/appointments',
+        label: 'Appointment Management',
+        path: '/staff/appointment-management',
         icon: <AppointmentIcon />,
       },
-      { label: 'Doctors', path: '/doctors', icon: <DoctorIcon /> },
+      {
+        label: 'Patient Registration',
+        path: '/staff/patient-registration',
+        icon: <PeopleIcon />,
+      },
+      {
+        label: 'Insurance Processing',
+        path: '/staff/insurance-processing',
+        icon: <PaymentIcon />,
+      },
     ],
     doctor: [
-      { label: 'My Patients', path: '/patients', icon: <PeopleIcon /> },
       {
-        label: 'Appointments',
-        path: '/appointments',
+        label: 'Patient Records',
+        path: '/doctor/patient-records',
+        icon: <MedicalIcon />,
+      },
+      {
+        label: 'Schedule Appointments',
+        path: '/doctor/schedule-appointments',
         icon: <AppointmentIcon />,
       },
       {
-        label: 'Medical Records',
-        path: '/medical-records',
+        label: 'Write Prescriptions',
+        path: '/doctor/write-prescriptions',
         icon: <MedicalIcon />,
       },
     ],
     nurse: [
-      { label: 'Patients', path: '/patients', icon: <PeopleIcon /> },
       {
-        label: 'Appointments',
-        path: '/appointments',
-        icon: <AppointmentIcon />,
-      },
-      {
-        label: 'Medical Tasks',
-        path: '/medical-tasks',
-        icon: <AssignmentIcon />,
+        label: 'Patient Care Tasks',
+        path: '/nurse/patient-care-tasks',
+        icon: <MedicalIcon />,
       },
     ],
     patient: [
       {
-        label: 'My Appointments',
-        path: '/appointments',
+        label: 'Book Appointment',
+        path: '/patient/book-appointment',
         icon: <AppointmentIcon />,
       },
       {
-        label: 'Medical Records',
-        path: '/medical-records',
+        label: 'View Test Results',
+        path: '/patient/view-test-results',
         icon: <MedicalIcon />,
       },
-      { label: 'Billing', path: '/billing', icon: <PaymentIcon /> },
+      {
+        label: 'Pay Bills',
+        path: '/patient/pay-bills',
+        icon: <PaymentIcon />,
+      },
     ],
   };
 
