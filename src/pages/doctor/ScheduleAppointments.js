@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Box,
   Typography,
-  Paper,
   Grid,
   Card,
   CardContent,
@@ -235,7 +234,11 @@ export default function ScheduleAppointments() {
                     <ListItemText
                       primary={
                         <Box display='flex' alignItems='center' gap={1}>
-                          <Typography variant='body1' fontWeight='bold'>
+                          <Typography
+                            variant='body1'
+                            fontWeight='bold'
+                            component='span'
+                          >
                             {appointment.time} - {appointment.patientName}
                           </Typography>
                           <Chip
@@ -247,29 +250,50 @@ export default function ScheduleAppointments() {
                       }
                       secondary={
                         <Box>
-                          <Typography variant='body2' color='textSecondary'>
+                          <Typography
+                            variant='body2'
+                            color='textSecondary'
+                            component='span'
+                            display='block'
+                          >
                             Type: {appointment.type} | Duration:{' '}
                             {appointment.duration} min
                           </Typography>
                           {appointment.notes && (
-                            <Typography variant='body2' color='textSecondary'>
+                            <Typography
+                              variant='body2'
+                              color='textSecondary'
+                              component='span'
+                              display='block'
+                            >
                               Notes: {appointment.notes}
                             </Typography>
                           )}
                         </Box>
                       }
+                      slotProps={{
+                        secondary: {
+                          component: 'div',
+                        },
+                      }}
                     />
                   </ListItem>
                 ))}
                 {getAppointmentsForDate(selectedDate).length === 0 && (
-                  <Typography
-                    variant='body2'
-                    color='textSecondary'
-                    textAlign='center'
-                    py={4}
-                  >
-                    No appointments scheduled for this date
-                  </Typography>
+                  <ListItem>
+                    <ListItemText
+                      primary={
+                        <Typography
+                          variant='body2'
+                          color='textSecondary'
+                          textAlign='center'
+                          component='span'
+                        >
+                          No appointments scheduled for this date
+                        </Typography>
+                      }
+                    />
+                  </ListItem>
                 )}
               </List>
             </CardContent>
