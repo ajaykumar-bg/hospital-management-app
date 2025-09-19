@@ -10,6 +10,12 @@ import {
   Button,
   Stack,
   Alert,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
 } from '@mui/material';
 import {
   AdminPanelSettings as AdminIcon,
@@ -266,94 +272,31 @@ const Configuration = () => {
                 Compare permissions between different hospital roles
               </Typography>
 
-              <Box sx={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                  <thead>
-                    <tr>
-                      <th
-                        style={{
-                          textAlign: 'left',
-                          padding: '12px 8px',
-                          borderBottom: '2px solid #ddd',
-                          backgroundColor: '#f5f5f5',
-                        }}
-                      >
-                        Permission
-                      </th>
-                      <th
-                        style={{
-                          textAlign: 'center',
-                          padding: '12px 8px',
-                          borderBottom: '2px solid #ddd',
-                          backgroundColor: '#f5f5f5',
-                        }}
-                      >
-                        Admin
-                      </th>
-                      <th
-                        style={{
-                          textAlign: 'center',
-                          padding: '12px 8px',
-                          borderBottom: '2px solid #ddd',
-                          backgroundColor: '#f5f5f5',
-                        }}
-                      >
-                        Staff
-                      </th>
-                      <th
-                        style={{
-                          textAlign: 'center',
-                          padding: '12px 8px',
-                          borderBottom: '2px solid #ddd',
-                          backgroundColor: '#f5f5f5',
-                        }}
-                      >
-                        Doctor
-                      </th>
-                      <th
-                        style={{
-                          textAlign: 'center',
-                          padding: '12px 8px',
-                          borderBottom: '2px solid #ddd',
-                          backgroundColor: '#f5f5f5',
-                        }}
-                      >
-                        Nurse
-                      </th>
-                      <th
-                        style={{
-                          textAlign: 'center',
-                          padding: '12px 8px',
-                          borderBottom: '2px solid #ddd',
-                          backgroundColor: '#f5f5f5',
-                        }}
-                      >
-                        Patient
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
+              <TableContainer component={Paper} variant='outlined'>
+                <Table size='small' sx={{ minWidth: 650 }}>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Permission</TableCell>
+                      <TableCell align='center'>Admin</TableCell>
+                      <TableCell align='center'>Staff</TableCell>
+                      <TableCell align='center'>Doctor</TableCell>
+                      <TableCell align='center'>Nurse</TableCell>
+                      <TableCell align='center'>Patient</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
                     {Object.keys(permissionLabels).map((key) => (
-                      <tr key={key}>
-                        <td
-                          style={{
-                            padding: '12px 8px',
-                            borderBottom: '1px solid #eee',
-                            fontWeight: 500,
-                          }}
+                      <TableRow key={key} hover>
+                        <TableCell
+                          component='th'
+                          scope='row'
+                          sx={{ fontWeight: 500 }}
                         >
                           {permissionLabels[key]}
-                        </td>
+                        </TableCell>
                         {['admin', 'staff', 'doctor', 'nurse', 'patient'].map(
                           (role) => (
-                            <td
-                              key={role}
-                              style={{
-                                textAlign: 'center',
-                                padding: '12px 8px',
-                                borderBottom: '1px solid #eee',
-                              }}
-                            >
+                            <TableCell align='center' key={role}>
                               <Chip
                                 label={
                                   allRolePermissions[role][key] ? '✓' : '✗'
@@ -365,15 +308,16 @@ const Configuration = () => {
                                 }
                                 size='small'
                                 variant='filled'
+                                sx={{ minWidth: 32 }}
                               />
-                            </td>
+                            </TableCell>
                           )
                         )}
-                      </tr>
+                      </TableRow>
                     ))}
-                  </tbody>
-                </table>
-              </Box>
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </CardContent>
           </Card>
         </Grid>
