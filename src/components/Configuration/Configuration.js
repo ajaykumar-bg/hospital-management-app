@@ -20,16 +20,7 @@ import { useUser } from '../../context/UserContext';
 const Configuration = () => {
   const { user, permissions, switchRole } = useUser();
 
-  const permissionLabels = {
-    canViewAIIndex: 'AI Index Widget',
-    canViewProductRoadmap: 'Product Roadmap',
-    canViewTechDebt: 'Tech Debt Section',
-    canViewAppRat: 'App Rationalization',
-    canViewVulnerabilities: 'Vulnerabilities',
-    canViewSQLOptimization: 'SQL Optimization',
-    canViewOperationsMetrics: 'Operations Metrics',
-    canViewServiceRequest: 'Service Requests',
-  };
+  const permissionLabels = {};
 
   const handleRoleSwitch = (newRole) => {
     switchRole(newRole);
