@@ -21,6 +21,8 @@ import WritePrescriptions from './pages/doctor/WritePrescriptions';
 
 // Nurse Pages
 import PatientCareTasks from './pages/nurse/PatientCareTasks';
+import MedicationSchedule from './pages/nurse/MedicationSchedule';
+import VitalSigns from './pages/nurse/VitalSigns';
 
 // Staff Pages
 import AppointmentManagement from './pages/staff/AppointmentManagement';
@@ -85,6 +87,14 @@ function AppRoutes() {
                       <Route
                         path='/nurse/patient-care-tasks'
                         element={<PatientCareTasks />}
+                      />
+                      <Route
+                        path='/nurse/medication-schedule'
+                        element={<MedicationSchedule />}
+                      />
+                      <Route
+                        path='/nurse/vital-signs'
+                        element={<VitalSigns />}
                       />
 
                       {/* Staff Routes */}

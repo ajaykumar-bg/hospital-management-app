@@ -43,8 +43,8 @@ function QuickActions(props) {
 
       // Nurse routes
       'patient-care': '/nurse/patient-care-tasks',
-      'medication-schedule': '/nurse/patient-care-tasks', // Same page, different functionality
-      'vital-signs': '/nurse/patient-care-tasks', // Same page, different functionality
+      'medication-schedule': '/nurse/medication-schedule',
+      'vital-signs': '/nurse/vital-signs',
 
       // Staff routes
       'appointment-management': '/staff/appointment-management',

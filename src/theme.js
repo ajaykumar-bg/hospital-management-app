@@ -94,6 +94,7 @@ export const getTheme = (mode) =>
           root: {
             borderRadius: 5,
             padding: '0.75rem',
+            // #7f4a9b
           },
         },
       },
