@@ -22,8 +22,8 @@ export const themeOptions = [
     label: 'Purple Theme',
     description: 'Elegant purple design for medical professionals',
     icon: <Palette color='primary' />,
-    preview: '#7f4a9b',
-    textColor: '#ffffff',
+    preview: '#ffffff',
+    textColor: '#7f4a9b',
   },
 ];
 

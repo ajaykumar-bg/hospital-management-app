@@ -101,6 +101,9 @@ const ThemeSelector = () => {
             <strong>Current Theme:</strong>{' '}
             {themeOptions.find((t) => t.value === mode)?.label}
           </Typography>
+          <Typography variant='body2' color='text.info'>
+            {themeOptions.find((t) => t.value === mode)?.description}
+          </Typography>
           <Typography variant='caption' color='text.secondary'>
             {settingsPageInfo.themeStatusNote}
           </Typography>
