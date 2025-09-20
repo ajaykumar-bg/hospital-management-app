@@ -261,7 +261,7 @@ const themeConfigurations = {
   },
 };
 
-export const getTheme = (mode = 'light') => {
+export const getTheme = (mode = 'dark') => {
   const config = themeConfigurations[mode] || themeConfigurations.light;
 
   return createTheme({
