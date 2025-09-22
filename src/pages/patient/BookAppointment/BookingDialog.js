@@ -138,7 +138,7 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
   const renderDateTimeStep = () => (
     <Box sx={{ mt: 2 }}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             fullWidth
             label='Appointment Date'
@@ -153,7 +153,7 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
             helperText={errors.appointmentDate}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FormControl fullWidth error={!!errors.timeSlot}>
             <InputLabel>Time Slot</InputLabel>
             <Select
@@ -169,7 +169,7 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <FormControl fullWidth>
             <InputLabel>Appointment Type</InputLabel>
             <Select
@@ -194,7 +194,7 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
   const renderDetailsStep = () => (
     <Box sx={{ mt: 2 }}>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <TextField
             fullWidth
             label='Reason for Visit'
@@ -210,7 +210,7 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
             inputProps={{ maxLength: formValidation.reason.maxLength }}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <TextField
             fullWidth
             label='Symptoms (Optional)'
@@ -222,7 +222,7 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
             inputProps={{ maxLength: formValidation.symptoms.maxLength }}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <TextField
             fullWidth
             label='Additional Notes (Optional)'
@@ -255,13 +255,13 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
         </Box>
         <Divider sx={{ my: 2 }} />
         <Grid container spacing={2}>
-          <Grid item xs={6}>
+          <Grid size={{ xs: 6 }}>
             <Typography variant='body2' color='text.secondary'>
               Date:
             </Typography>
             <Typography variant='body1'>{formData.appointmentDate}</Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid size={{ xs: 6 }}>
             <Typography variant='body2' color='text.secondary'>
               Time:
             </Typography>
@@ -269,7 +269,7 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
               {timeSlots.find((slot) => slot.value === formData.timeSlot)?.time}
             </Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid size={{ xs: 6 }}>
             <Typography variant='body2' color='text.secondary'>
               Type:
             </Typography>
@@ -281,7 +281,7 @@ const BookingDialog = ({ open, onClose, doctor, onConfirmBooking }) => {
               }
             </Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid size={{ xs: 6 }}>
             <Typography variant='body2' color='text.secondary'>
               Fee:
             </Typography>

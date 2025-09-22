@@ -105,7 +105,7 @@ const BookAppointment = () => {
       </Alert>
 
       <Grid container spacing={3} sx={{ mb: 3 }}>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FormControl fullWidth>
             <InputLabel>Specialty</InputLabel>
             <Select
@@ -121,7 +121,7 @@ const BookAppointment = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             fullWidth
             label='Search Doctors'
