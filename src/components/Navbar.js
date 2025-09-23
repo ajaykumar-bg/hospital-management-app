@@ -22,9 +22,11 @@ import {
 import { useState } from 'react';
 import { useUser } from '../context/UserContext';
 import Sidebar from './Sidebar';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const { user, switchRole } = useUser();
+  const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [userMenuAnchorEl, setUserMenuAnchorEl] = useState(null);
 
@@ -52,6 +54,7 @@ const Navbar = () => {
 
   const handleRoleChange = (role) => {
     switchRole(role);
+    navigate('/');
     handleUserMenuClose();
   };
 
