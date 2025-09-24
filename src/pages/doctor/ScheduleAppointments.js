@@ -203,7 +203,7 @@ export default function ScheduleAppointments() {
               <Typography variant='h6' gutterBottom>
                 Appointments for {selectedDate}
               </Typography>
-              <List>
+              <List dense>
                 {getAppointmentsForDate(selectedDate).map((appointment) => (
                   <ListItem
                     key={appointment.id}
@@ -308,7 +308,7 @@ export default function ScheduleAppointments() {
                 All Upcoming Appointments
               </Typography>
               <TableContainer>
-                <Table>
+                <Table size='small'>
                   <TableHead>
                     <TableRow>
                       <TableCell>Patient</TableCell>

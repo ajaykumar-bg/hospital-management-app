@@ -18,7 +18,7 @@ import { patientRecordsConfig, getStatusColor } from './constants';
 const PatientTable = ({ patients, onViewPatient }) => {
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table size='small'>
         <TableHead>
           <TableRow>
             {patientRecordsConfig.tableHeaders.map((header) => (

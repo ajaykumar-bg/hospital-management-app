@@ -15,7 +15,7 @@ const PatientMedications = ({ patient }) => {
       <Typography variant='h6' gutterBottom>
         Current Medications
       </Typography>
-      <List>
+      <List dense>
         {patient.currentMedications.map((medication, index) => (
           <div key={index}>
             <ListItem>

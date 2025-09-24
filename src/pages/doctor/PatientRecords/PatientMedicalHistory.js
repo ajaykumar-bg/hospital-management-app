@@ -15,7 +15,7 @@ const PatientMedicalHistory = ({ patient }) => {
       <Typography variant='h6' gutterBottom>
         Medical History
       </Typography>
-      <List>
+      <List dense>
         {patient.medicalHistory.map((condition, index) => (
           <div key={index}>
             <ListItem>

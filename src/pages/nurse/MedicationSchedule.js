@@ -288,7 +288,7 @@ export default function MedicationSchedule() {
             Medication Schedule ({filterStatus})
           </Typography>
           <TableContainer>
-            <Table>
+            <Table size='small'>
               <TableHead>
                 <TableRow>
                   <TableCell>Patient</TableCell>

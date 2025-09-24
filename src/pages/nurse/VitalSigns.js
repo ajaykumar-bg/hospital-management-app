@@ -302,7 +302,7 @@ export default function VitalSigns() {
             Patient Vital Signs
           </Typography>
           <TableContainer>
-            <Table>
+            <Table size='small'>
               <TableHead>
                 <TableRow>
                   <TableCell>Patient</TableCell>

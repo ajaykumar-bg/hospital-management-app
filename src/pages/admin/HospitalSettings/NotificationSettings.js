@@ -36,7 +36,7 @@ const NotificationSettings = ({ settings, onSave, onSwitchChange }) => {
             <SaveIcon />
           </IconButton>
         </Box>
-        <List>
+        <List dense>
           <ListItem>
             <ListItemText primary='Email Notifications' />
             <ListItemSecondaryAction>

@@ -299,7 +299,7 @@ export default function InsuranceProcessing() {
               <Typography variant='h6' gutterBottom>
                 Recent Claims Status
               </Typography>
-              <List>
+              <List dense>
                 {claims.slice(0, 3).map((claim) => (
                   <React.Fragment key={claim.id}>
                     <ListItem>
@@ -360,7 +360,7 @@ export default function InsuranceProcessing() {
             All Insurance Claims
           </Typography>
           <TableContainer>
-            <Table>
+            <Table size='small'>
               <TableHead>
                 <TableRow>
                   <TableCell>Claim Number</TableCell>

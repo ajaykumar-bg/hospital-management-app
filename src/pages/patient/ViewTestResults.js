@@ -203,7 +203,7 @@ export default function ViewTestResults() {
             Laboratory Tests
           </Typography>
           <TableContainer>
-            <Table>
+            <Table size='small'>
               <TableHead>
                 <TableRow>
                   <TableCell>Test Name</TableCell>
@@ -253,7 +253,7 @@ export default function ViewTestResults() {
             Imaging Results
           </Typography>
           <TableContainer>
-            <Table>
+            <Table size='small'>
               <TableHead>
                 <TableRow>
                   <TableCell>Test Name</TableCell>
@@ -317,7 +317,7 @@ export default function ViewTestResults() {
                 <Typography variant='h6' gutterBottom>
                   Results
                 </Typography>
-                <List>
+                <List dense>
                   {Object.entries(selectedResult.results).map(
                     ([key, value]) => (
                       <React.Fragment key={key}>

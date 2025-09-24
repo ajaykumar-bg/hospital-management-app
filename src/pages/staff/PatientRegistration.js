@@ -295,7 +295,7 @@ export default function PatientRegistration() {
           </Typography>
           {filteredPatients.length > 0 ? (
             <TableContainer>
-              <Table>
+              <Table size='small'>
                 <TableHead>
                   <TableRow>
                     <TableCell>Patient ID</TableCell>

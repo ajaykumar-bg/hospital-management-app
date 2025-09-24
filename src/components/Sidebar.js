@@ -18,6 +18,8 @@ import {
   Settings as SettingsIcon,
   AccountCircle as ProfileIcon,
   MedicalServices as MedicalIcon,
+  Schedule as MedicationIcon,
+  MonitorHeart as VitalSignsIcon,
   Payment as PaymentIcon,
   Business as HospitalIcon,
 } from '@mui/icons-material';
@@ -99,6 +101,16 @@ const Sidebar = ({ open, onClose }) => {
         label: 'Patient Care Tasks',
         path: '/nurse/patient-care-tasks',
         icon: <MedicalIcon />,
+      },
+      {
+        label: 'Medication Schedule',
+        path: '/nurse/medication-schedule',
+        icon: <MedicationIcon />,
+      },
+      {
+        label: 'Vital Signs Entry',
+        path: '/nurse/vital-signs',
+        icon: <VitalSignsIcon />,
       },
     ],
     patient: [

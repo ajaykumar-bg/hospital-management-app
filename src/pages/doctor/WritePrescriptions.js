@@ -182,7 +182,7 @@ export default function WritePrescriptions() {
                 Recent Prescriptions
               </Typography>
               <TableContainer>
-                <Table>
+                <Table size='small'>
                   <TableHead>
                     <TableRow>
                       <TableCell>Patient</TableCell>

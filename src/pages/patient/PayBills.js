@@ -234,7 +234,7 @@ export default function PayBills() {
               <Typography variant='h6' gutterBottom>
                 Insurance Information
               </Typography>
-              <List>
+              <List dense>
                 <ListItem>
                   <ListItemText
                     primary='Provider'

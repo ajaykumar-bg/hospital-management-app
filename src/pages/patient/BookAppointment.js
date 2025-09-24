@@ -278,7 +278,7 @@ export default function BookAppointment() {
                 Appointment History
               </Typography>
               {pastAppointments.length > 0 ? (
-                <List>
+                <List dense>
                   {pastAppointments.map((appointment) => (
                     <React.Fragment key={appointment.id}>
                       <ListItem>
@@ -312,7 +312,7 @@ export default function BookAppointment() {
               <Typography variant='h6' gutterBottom>
                 Available Doctors
               </Typography>
-              <List>
+              <List dense>
                 {mockDoctors.map((doctor) => (
                   <React.Fragment key={doctor.id}>
                     <ListItem>

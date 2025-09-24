@@ -324,7 +324,7 @@ export default function AppointmentManagement() {
             All Appointments
           </Typography>
           <TableContainer>
-            <Table>
+            <Table size='small'>
               <TableHead>
                 <TableRow>
                   <TableCell>Patient</TableCell>

@@ -219,7 +219,7 @@ export default function PatientCareTasks() {
             Patient Care Tasks ({filterStatus})
           </Typography>
           <TableContainer>
-            <Table>
+            <Table size='small'>
               <TableHead>
                 <TableRow>
                   <TableCell>Patient</TableCell>
