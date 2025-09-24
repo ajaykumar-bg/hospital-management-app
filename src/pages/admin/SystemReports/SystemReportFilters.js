@@ -9,7 +9,7 @@ import {
   Button,
 } from '@mui/material';
 
-const ReportFilters = ({
+const SystemReportFilters = ({
   reportType,
   timeRange,
   onReportTypeChange,
@@ -63,4 +63,4 @@ const ReportFilters = ({
   );
 };
 
-export default ReportFilters;
+export default SystemReportFilters;

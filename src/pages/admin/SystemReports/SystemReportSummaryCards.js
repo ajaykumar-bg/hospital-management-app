@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Card, CardContent, Typography } from '@mui/material';
 
-const SummaryCards = () => {
+const SystemReportSummaryCards = () => {
   const summaryData = [
     {
       title: 'Total Patients',
@@ -50,4 +50,4 @@ const SummaryCards = () => {
   );
 };
 
-export default SummaryCards;
+export default SystemReportSummaryCards;

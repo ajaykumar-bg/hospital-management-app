@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import { PieChart } from '@mui/x-charts';
 
-const DepartmentChart = ({ data }) => {
+const DepartmentDistribution = ({ data }) => {
   return (
     <Card>
       <CardContent>
@@ -28,4 +28,4 @@ const DepartmentChart = ({ data }) => {
   );
 };
 
-export default DepartmentChart;
+export default DepartmentDistribution;

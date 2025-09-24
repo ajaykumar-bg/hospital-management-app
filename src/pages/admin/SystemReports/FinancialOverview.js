@@ -1,40 +1,40 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import { LineChart } from '@mui/x-charts';
+import { BarChart } from '@mui/x-charts';
 
-const PatientTrendsChart = ({ data }) => {
+const FinancialOverview = ({ data }) => {
   return (
     <Card>
       <CardContent>
         <Typography variant='h6' gutterBottom>
-          Patient & Appointment Trends
+          Financial Overview
         </Typography>
-        <LineChart
-          width={800}
+        <BarChart
+          width={1000}
           height={300}
           xAxis={[
             {
-              scaleType: 'point',
+              scaleType: 'band',
               data: data.months,
             },
           ]}
           series={[
             {
-              data: data.patients,
-              label: 'Patients',
+              data: data.revenue,
+              label: 'Revenue',
               color: '#8884d8',
             },
             {
-              data: data.appointments,
-              label: 'Appointments',
+              data: data.expenses,
+              label: 'Expenses',
               color: '#82ca9d',
             },
           ]}
-          grid={{ horizontal: true, vertical: true }}
+          grid={{ horizontal: true }}
         />
       </CardContent>
     </Card>
   );
 };
 
-export default PatientTrendsChart;
+export default FinancialOverview;

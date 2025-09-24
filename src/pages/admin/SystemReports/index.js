@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Typography, Grid } from '@mui/material';
-import ReportFilters from './ReportFilters';
-import PatientTrendsChart from './PatientTrendsChart';
-import DepartmentChart from './DepartmentChart';
-import FinancialChart from './FinancialChart';
-import SummaryCards from './SummaryCards';
+import SystemReportFilters from './SystemReportFilters';
+import PatientAppointmentTrends from './PatientAppointmentTrends';
+import DepartmentDistribution from './DepartmentDistribution';
+import FinancialOverview from './FinancialOverview';
+import SystemReportSummaryCards from './SystemReportSummaryCards';
 import { mockData } from './constants';
 
 export default function SystemReports() {
@@ -30,7 +30,7 @@ export default function SystemReports() {
         System Reports
       </Typography>
 
-      <ReportFilters
+      <SystemReportFilters
         reportType={reportType}
         timeRange={timeRange}
         onReportTypeChange={handleReportTypeChange}
@@ -39,23 +39,23 @@ export default function SystemReports() {
       />
 
       <Grid container spacing={3}>
+        {/* Summary Cards */}
+        <SystemReportSummaryCards />
+
         {/* Patient Statistics */}
         <Grid size={{ xs: 12, lg: 8 }}>
-          <PatientTrendsChart data={mockData.patientStats} />
+          <PatientAppointmentTrends data={mockData.patientStats} />
         </Grid>
 
         {/* Department Distribution */}
         <Grid size={{ xs: 12, lg: 4 }}>
-          <DepartmentChart data={mockData.departmentData} />
+          <DepartmentDistribution data={mockData.departmentData} />
         </Grid>
 
         {/* Revenue Report */}
         <Grid size={{ xs: 12 }}>
-          <FinancialChart data={mockData.revenue} />
+          <FinancialOverview data={mockData.revenue} />
         </Grid>
-
-        {/* Summary Cards */}
-        <SummaryCards />
       </Grid>
     </Box>
   );
