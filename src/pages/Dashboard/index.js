@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 
 import { useUser } from '../../context/UserContext';
-import { StatCard } from './StatCard';
+import DashboardStatCard from './DashboardStatCard';
 import { DashboardMetrics } from './DashboardMetrics';
 import QuickActions from './QuickActions';
 import PerformanceOverview from './PerfomanceOverview';
@@ -83,11 +83,11 @@ export default function Dashboard() {
         Welcome back, {user.name}
       </Typography>
 
-      {/* Key Metrics Cards */}
+      {/* Key Dashboard Metrics Cards */}
       <Grid container spacing={3} sx={{ mt: 2 }}>
         {metrics.map((metric, index) => (
           <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
-            <StatCard {...metric} />
+            <DashboardStatCard {...metric} />
           </Grid>
         ))}
       </Grid>

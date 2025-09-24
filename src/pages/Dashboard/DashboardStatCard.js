@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 
-export const StatCard = ({ title, value, icon, color = 'primary' }) => (
+const DashboardStatCard = ({ title, value, icon, color = 'primary' }) => (
   <Card sx={{ height: '100%' }}>
     <CardContent>
       <Box display='flex' alignItems='center' justifyContent='space-between'>
@@ -17,3 +17,5 @@ export const StatCard = ({ title, value, icon, color = 'primary' }) => (
     </CardContent>
   </Card>
 );
+
+export default DashboardStatCard;
